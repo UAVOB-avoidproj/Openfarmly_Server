@@ -1,0 +1,3 @@
+[submodule "MAVfly"]
+	path = MAVfly
+	url = https://github.com/UAVOB-avoidproj/MAVfly.git
