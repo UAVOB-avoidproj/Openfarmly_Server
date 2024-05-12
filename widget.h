@@ -2,6 +2,8 @@
 #define WIDGET_H
 
 #include <QWidget>
+#include "qtmavfly.h"
+#include <enumVelocityBodyYawspeed.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
@@ -14,6 +16,15 @@ class Widget : public QWidget
 public:
     Widget(QWidget *parent = nullptr);
     ~Widget();
+
+private slots:
+    void on_QtMavsdk_Init_clicked();
+    void on_QtsetOffboard_VBY_clicked();
+    void on_QtOffboard_Init_clicked();
+    void on_QtOffboard_Start_clicked();
+    void on_QtOffboard_Stop_clicked();
+    void on_QtAction_takeoff_clicked();
+    void on_QtAction_land_clicked();
 
 private:
     Ui::Widget *ui;
