@@ -41,7 +41,6 @@ signals:
     void QtAction_land_rt(const int rt);
     void QtReturn_to_Launch_rt(const int rt);
 
-    void QtpositionCallback(const Telemetry::Position);
 
 
 };

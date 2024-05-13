@@ -73,9 +73,9 @@
      </widget>
     </item>
     <item row="6" column="1">
-     <widget class="QPushButton" name="set_positionCallback">
+     <widget class="QPushButton" name="start_flydataMonitor">
       <property name="text">
-       <string>set_positionCallback</string>
+       <string>start_flydataMonitor</string>
       </property>
      </widget>
     </item>
@@ -648,6 +648,32 @@
      </item>
     </layout>
    </widget>
+  </widget>
+  <widget class="QLabel" name="FlightMode">
+   <property name="geometry">
+    <rect>
+     <x>370</x>
+     <y>90</y>
+     <width>81</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>FlightMode:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="FlightMode_value">
+   <property name="geometry">
+    <rect>
+     <x>460</x>
+     <y>90</y>
+     <width>81</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>unknown</string>
+   </property>
   </widget>
  </widget>
  <resources>

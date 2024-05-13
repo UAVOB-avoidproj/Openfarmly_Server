@@ -27,9 +27,9 @@ private slots:
     void on_QtAction_takeoff_clicked();
     void on_QtAction_land_clicked();
 
-    void ui_QtpositionCallback();
+    void ui_QttimeCallback();
 
-    void on_set_positionCallback_clicked();
+    void on_start_flydataMonitor_clicked();
 
 private:
     Ui::Widget *ui;

@@ -20,9 +20,8 @@ Widget::Widget(QWidget *parent)
 
     tim = new QTimer();
     tim->setInterval(1000);
-    QObject::connect(tim, SIGNAL(timeout()), this,SLOT(ui_QtpositionCallback()));
+    QObject::connect(tim, SIGNAL(timeout()), this,SLOT(ui_QttimeCallback()));
 
-    QObject::connect(&qtmavfly, &QtMAVfly::QtpositionCallback, this, &Widget::ui_QtpositionCallback);
 }
 
 Widget::~Widget()
@@ -64,14 +63,18 @@ void Widget::on_QtAction_land_clicked()
 {
     qtmavfly.QtReturn_to_Launch();
 }
-void Widget::ui_QtpositionCallback(){
+void Widget::ui_QttimeCallback(){
+    // Global_position update
     Telemetry::Position _position = get_Global_Position();
 
     ui->latitude_value->setText(QString::number(_position.latitude_deg, 'f', 2));
     ui->longitude_value->setText(QString::number(_position.longitude_deg, 'f', 2));
-}
 
-void Widget::on_set_positionCallback_clicked()
+    // Flight_mode update
+    QString _flightmode = QString::fromStdString(get_FlightMode());
+    ui->FlightMode_value->setText(_flightmode);
+}
+void Widget::on_start_flydataMonitor_clicked()
 {
     tim->start();
 }
