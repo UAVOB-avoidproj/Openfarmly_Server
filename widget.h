@@ -4,6 +4,7 @@
 #include <QWidget>
 #include "qtmavfly.h"
 #include <enumVelocityBodyYawspeed.h>
+#include <QTimer>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
@@ -26,7 +27,12 @@ private slots:
     void on_QtAction_takeoff_clicked();
     void on_QtAction_land_clicked();
 
+    void ui_QtpositionCallback();
+
+    void on_set_positionCallback_clicked();
+
 private:
     Ui::Widget *ui;
+    QTimer *tim;
 };
 #endif // WIDGET_H

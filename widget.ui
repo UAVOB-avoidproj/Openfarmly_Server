@@ -19,7 +19,7 @@
      <x>10</x>
      <y>260</y>
      <width>387</width>
-     <height>111</height>
+     <height>120</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout_3">
@@ -69,6 +69,13 @@
      <widget class="QPushButton" name="QtAction_land">
       <property name="text">
        <string>QtAction_land</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="1">
+     <widget class="QPushButton" name="set_positionCallback">
+      <property name="text">
+       <string>set_positionCallback</string>
       </property>
      </widget>
     </item>
@@ -559,7 +566,7 @@
       <number>6</number>
      </property>
      <item row="0" column="5">
-      <widget class="QLabel" name="label_4">
+      <widget class="QLabel" name="altitude_value">
        <property name="font">
         <font>
          <pointsize>9</pointsize>
@@ -574,7 +581,7 @@
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QLabel" name="label_2">
+      <widget class="QLabel" name="longitude_value">
        <property name="font">
         <font>
          <pointsize>9</pointsize>
@@ -589,7 +596,7 @@
       </widget>
      </item>
      <item row="0" column="3">
-      <widget class="QLabel" name="label_3">
+      <widget class="QLabel" name="latitude_value">
        <property name="font">
         <font>
          <pointsize>9</pointsize>
@@ -604,7 +611,7 @@
       </widget>
      </item>
      <item row="0" column="4">
-      <widget class="QLabel" name="label_5">
+      <widget class="QLabel" name="altitude">
        <property name="font">
         <font>
          <pointsize>9</pointsize>
@@ -616,7 +623,7 @@
       </widget>
      </item>
      <item row="0" column="0">
-      <widget class="QLabel" name="label">
+      <widget class="QLabel" name="longitude">
        <property name="font">
         <font>
          <pointsize>9</pointsize>
@@ -628,7 +635,7 @@
       </widget>
      </item>
      <item row="0" column="2">
-      <widget class="QLabel" name="label_6">
+      <widget class="QLabel" name="latitude">
        <property name="font">
         <font>
          <pointsize>9</pointsize>

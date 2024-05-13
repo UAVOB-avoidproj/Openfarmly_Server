@@ -11,6 +11,8 @@ public:
     explicit QtMAVfly(QObject *parent = nullptr);
     ~QtMAVfly();
 
+//    const Telemetry::PositionCallback positionCallback(Telemetry::Position);
+
 public slots:
     // Here is the qt quadratic encapsulation declaration(slots) for the libmavfly library
     void QtMavsdk_Init();
@@ -38,6 +40,8 @@ signals:
     void QtAction_takeoff_rt(const int rt);
     void QtAction_land_rt(const int rt);
     void QtReturn_to_Launch_rt(const int rt);
+
+    void QtpositionCallback(const Telemetry::Position);
 
 
 };

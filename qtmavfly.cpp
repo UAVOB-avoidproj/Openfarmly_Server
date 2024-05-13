@@ -28,6 +28,7 @@ void QtMAVfly::QtOffboard_Init(){
         if(rt == 0) std::cout << "offboard_init ……\n";
         if(rt == 1) {std::cout << "offboard_init successful!\n";break;}
         if(rt == -1) {std::cerr << "offboard_init failed\n";break;}
+//        std::cout.flush();
         sleep_for(seconds(1));
     }
     emit QtOffboard_Init_rt(rt);
@@ -105,3 +106,4 @@ void QtMAVfly::QtReturn_to_Launch(){
 
     emit QtReturn_to_Launch_rt(rt);
 }
+
