@@ -22,6 +22,8 @@ Widget::Widget(QWidget *parent)
     tim->setInterval(1000);
     QObject::connect(tim, SIGNAL(timeout()), this,SLOT(ui_QttimeCallback()));
 
+    QObject::connect(this, &Widget::pushButton_test1, servertcp, &serverTCP::ClientConnect);
+
 }
 
 Widget::~Widget()
@@ -31,38 +33,43 @@ Widget::~Widget()
 
 void Widget::on_QtMavsdk_Init_clicked()
 {
-    qtmavfly.QtMavsdk_Init();
+    qtmavfly->QtMavsdk_Init();
 }
 
 void Widget::on_QtOffboard_Init_clicked()
 {
-    qtmavfly.QtOffboard_Init();
+    qtmavfly->QtOffboard_Init();
 }
 
 void Widget::on_QtOffboard_Start_clicked()
 {
-    qtmavfly.QtOffboard_Start();
+    qtmavfly->QtOffboard_Start();
 }
 
 void Widget::on_QtOffboard_Stop_clicked()
 {
-    qtmavfly.QtOffboard_Stop();
+    qtmavfly->QtOffboard_Stop();
 }
 
 void Widget::on_QtsetOffboard_VBY_clicked()
 {
-    qtmavfly.QtsetOffboard_VBY(vbyForward);
+    qtmavfly->QtsetOffboard_VBY(vbyForward);
 }
 
 void Widget::on_QtAction_takeoff_clicked()
 {
-    qtmavfly.QtAction_takeoff();
+    qtmavfly->QtAction_takeoff();
 }
 
 void Widget::on_QtAction_land_clicked()
 {
-    qtmavfly.QtReturn_to_Launch();
+    qtmavfly->QtAction_land();
 }
+void Widget::on_QtsetOffboard_VBY_2_clicked()
+{
+    qtmavfly->QtReturn_to_Launch();
+}
+
 void Widget::ui_QttimeCallback(){
     // Global_position update
     Telemetry::Position _position = get_Global_Position();
@@ -73,9 +80,33 @@ void Widget::ui_QttimeCallback(){
     // Flight_mode update
     QString _flightmode = QString::fromStdString(get_FlightMode());
     ui->FlightMode_value->setText(_flightmode);
+
+    // Odometry update
+    //position_body update
+    Telemetry::Odometry odometry = get_Odometry();
+    ui->label_position_x->setText(QString::number(odometry.position_body.x_m, 'f', 2));
+    ui->label_position_x->setText(QString::number(odometry.position_body.y_m, 'f', 2));
+    ui->label_position_x->setText(QString::number(odometry.position_body.z_m, 'f', 2));
+    // velocitybody update
+    ui->label_velocity_x->setText(QString::number(odometry.velocity_body.x_m_s, 'f', 2));
+    ui->label_velocity_y->setText(QString::number(odometry.velocity_body.y_m_s, 'f', 2));
+    ui->label_velocity_z->setText(QString::number(odometry.velocity_body.z_m_s, 'f', 2));
+    // angularvelocitybody update
+    ui->label_angularvelocity_x->setText(QString::number(odometry.angular_velocity_body.roll_rad_s, 'f', 2));
+    ui->label_angularvelocity_y->setText(QString::number(odometry.angular_velocity_body.pitch_rad_s, 'f', 2));
+    ui->label_angularvelocity_z->setText(QString::number(odometry.angular_velocity_body.yaw_rad_s, 'f', 2));
+    // eulerangle update
+    Telemetry::EulerAngle _eulerangle = get_EulerAngle();
+    ui->label_attitude_x->setText(QString::number(_eulerangle.roll_deg, 'f', 2));
+    ui->label_attitude_y->setText(QString::number(_eulerangle.pitch_deg, 'f', 2));
+    ui->label_attitude_z->setText(QString::number(_eulerangle.yaw_deg, 'f', 2));
 }
 void Widget::on_start_flydataMonitor_clicked()
 {
     tim->start();
+}
+void Widget::on_pushButton_test1_clicked()
+{
+ emit pushButton_test1();
 }
 

@@ -44,5 +44,5 @@ signals:
 
 
 };
-extern QtMAVfly qtmavfly;
+//extern QtMAVfly *qtmavfly;
 #endif // QTMAVFLY_H

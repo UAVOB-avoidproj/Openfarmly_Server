@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>595</width>
+    <width>695</width>
     <height>414</height>
    </rect>
   </property>
@@ -19,28 +19,21 @@
      <x>10</x>
      <y>260</y>
      <width>387</width>
-     <height>120</height>
+     <height>151</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout_3">
-    <item row="0" column="1">
-     <widget class="QPushButton" name="QtOffboard_Init">
-      <property name="text">
-       <string>QtOffboard_Init</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="0">
-     <widget class="QPushButton" name="QtOffboard_Start">
-      <property name="text">
-       <string>QtOffboard_Start</string>
-      </property>
-     </widget>
-    </item>
     <item row="6" column="0">
      <widget class="QPushButton" name="QtsetOffboard_VBY">
       <property name="text">
        <string>QtsetOffboard_VBY</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="1">
+     <widget class="QPushButton" name="start_flydataMonitor">
+      <property name="text">
+       <string>start_flydataMonitor</string>
       </property>
      </widget>
     </item>
@@ -58,13 +51,6 @@
       </property>
      </widget>
     </item>
-    <item row="2" column="1">
-     <widget class="QPushButton" name="QtOffboard_Stop">
-      <property name="text">
-       <string>QtOffboard_Stop</string>
-      </property>
-     </widget>
-    </item>
     <item row="4" column="1">
      <widget class="QPushButton" name="QtAction_land">
       <property name="text">
@@ -72,10 +58,31 @@
       </property>
      </widget>
     </item>
-    <item row="6" column="1">
-     <widget class="QPushButton" name="start_flydataMonitor">
+    <item row="2" column="1">
+     <widget class="QPushButton" name="QtOffboard_Stop">
       <property name="text">
-       <string>start_flydataMonitor</string>
+       <string>QtOffboard_Stop</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QPushButton" name="QtOffboard_Start">
+      <property name="text">
+       <string>QtOffboard_Start</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QPushButton" name="QtOffboard_Init">
+      <property name="text">
+       <string>QtOffboard_Init</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="0">
+     <widget class="QPushButton" name="QtsetOffboard_VBY_2">
+      <property name="text">
+       <string>QtReturn_to_Lauch</string>
       </property>
      </widget>
     </item>
@@ -673,6 +680,19 @@
    </property>
    <property name="text">
     <string>unknown</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_test1">
+   <property name="geometry">
+    <rect>
+     <x>440</x>
+     <y>330</y>
+     <width>151</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>pushButton_test1</string>
    </property>
   </widget>
  </widget>

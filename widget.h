@@ -5,11 +5,13 @@
 #include "qtmavfly.h"
 #include <enumVelocityBodyYawspeed.h>
 #include <QTimer>
+#include "servertcp.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
 QT_END_NAMESPACE
-
+extern serverTCP *servertcp;
+extern QtMAVfly *qtmavfly;
 class Widget : public QWidget
 {
     Q_OBJECT
@@ -17,6 +19,11 @@ class Widget : public QWidget
 public:
     Widget(QWidget *parent = nullptr);
     ~Widget();
+
+signals:
+    void pushButton_test1();
+
+public slots:
 
 private slots:
     void on_QtMavsdk_Init_clicked();
@@ -30,6 +37,12 @@ private slots:
     void ui_QttimeCallback();
 
     void on_start_flydataMonitor_clicked();
+
+    void on_QtsetOffboard_VBY_2_clicked();
+
+
+
+    void on_pushButton_test1_clicked();
 
 private:
     Ui::Widget *ui;
