@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <mavsdk_simplify.hpp>
+#include "serverjson.h"
 
 class QtMAVfly : public QObject
 {

@@ -6,12 +6,14 @@
 #include <enumVelocityBodyYawspeed.h>
 #include <QTimer>
 #include "servertcp.h"
+#include "serverjson.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
 QT_END_NAMESPACE
 extern serverTCP *servertcp;
 extern QtMAVfly *qtmavfly;
+extern serverJSON *serverjson;
 class Widget : public QWidget
 {
     Q_OBJECT

@@ -76,10 +76,15 @@ void Widget::ui_QttimeCallback(){
 
     ui->latitude_value->setText(QString::number(_position.latitude_deg, 'f', 2));
     ui->longitude_value->setText(QString::number(_position.longitude_deg, 'f', 2));
+//    qDebug()<<"QString::number(_position.latitude_deg, 'f', 2):"<<QString::number(_position.latitude_deg, 'f', 2);
+    serverjson->addJsonArray(QJsonValue("Position"), QJsonValue(_position.latitude_deg), QJsonValue(_position.longitude_deg));
+//    qDebug()<<"QJsonValue(_position.latitude_deg)"<<QJsonValue(_position.latitude_deg);
 
     // Flight_mode update
     QString _flightmode = QString::fromStdString(get_FlightMode());
     ui->FlightMode_value->setText(_flightmode);
+
+    serverjson->addJsonKeyValuepair(QJsonValue("FlightMode"), QJsonValue(_flightmode));
 
     // Odometry update
     //position_body update
@@ -87,19 +92,27 @@ void Widget::ui_QttimeCallback(){
     ui->label_position_x->setText(QString::number(odometry.position_body.x_m, 'f', 2));
     ui->label_position_x->setText(QString::number(odometry.position_body.y_m, 'f', 2));
     ui->label_position_x->setText(QString::number(odometry.position_body.z_m, 'f', 2));
-    // velocitybody update
+    qDebug()<<"QJsonValue(odometry.position_body.x_m)"<<QJsonValue(odometry.position_body.x_m);
+    serverjson->addJsonArray(QJsonValue("Position_body"), QJsonValue(odometry.position_body.x_m), QJsonValue(odometry.position_body.y_m), QJsonValue(odometry.position_body.z_m));
+    // velocity_body update
     ui->label_velocity_x->setText(QString::number(odometry.velocity_body.x_m_s, 'f', 2));
     ui->label_velocity_y->setText(QString::number(odometry.velocity_body.y_m_s, 'f', 2));
     ui->label_velocity_z->setText(QString::number(odometry.velocity_body.z_m_s, 'f', 2));
-    // angularvelocitybody update
+    serverjson->addJsonArray(QJsonValue("Velocity_body"), QJsonValue(odometry.velocity_body.x_m_s), QJsonValue(odometry.velocity_body.y_m_s), QJsonValue(odometry.velocity_body.z_m_s));
+    // angular_velocity_body update
     ui->label_angularvelocity_x->setText(QString::number(odometry.angular_velocity_body.roll_rad_s, 'f', 2));
     ui->label_angularvelocity_y->setText(QString::number(odometry.angular_velocity_body.pitch_rad_s, 'f', 2));
     ui->label_angularvelocity_z->setText(QString::number(odometry.angular_velocity_body.yaw_rad_s, 'f', 2));
+    qDebug()<<"QJsonValue(odometry.angular_velocity_body.roll_rad_s)"<<QJsonValue(odometry.angular_velocity_body.roll_rad_s);
+    serverjson->addJsonArray(QJsonValue("Angular_Velocity_body"), QJsonValue(odometry.angular_velocity_body.roll_rad_s), QJsonValue(odometry.angular_velocity_body.pitch_rad_s), QJsonValue(odometry.angular_velocity_body.yaw_rad_s));
     // eulerangle update
     Telemetry::EulerAngle _eulerangle = get_EulerAngle();
     ui->label_attitude_x->setText(QString::number(_eulerangle.roll_deg, 'f', 2));
     ui->label_attitude_y->setText(QString::number(_eulerangle.pitch_deg, 'f', 2));
     ui->label_attitude_z->setText(QString::number(_eulerangle.yaw_deg, 'f', 2));
+    serverjson->addJsonArray(QJsonValue("EulerAngle"), QJsonValue(_eulerangle.roll_deg), QJsonValue(_eulerangle.pitch_deg), QJsonValue(_eulerangle.yaw_deg));
+
+    emit serverjson->signal_sendJsonDataTCP();
 }
 void Widget::on_start_flydataMonitor_clicked()
 {

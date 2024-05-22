@@ -5,15 +5,17 @@
 #include <QTcpServer>
 #include <QTcpSocket>
 #include <QDebug>
+//#include <QJsonDocument>
 
 class serverTCP : public QObject
 {
     Q_OBJECT
 public:
     explicit serverTCP(QObject *parent = nullptr);
-
+    void sendJsonData(QByteArray);
 
 signals:
+
 
 public slots:
     void ClientConnect();

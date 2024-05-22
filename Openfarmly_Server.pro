@@ -11,11 +11,13 @@ CONFIG += c++17
 SOURCES += \
     main.cpp \
     qtmavfly.cpp \
+    serverjson.cpp \
     servertcp.cpp \
     widget.cpp
 
 HEADERS += \
     qtmavfly.h \
+    serverjson.h \
     servertcp.h \
     widget.h
 

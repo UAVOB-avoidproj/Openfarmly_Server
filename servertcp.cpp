@@ -23,6 +23,7 @@ void serverTCP::ClientConnect(){
 void serverTCP::ClientDisConnect(){
     qDebug()<<"disconnect client";
 }
+
 void serverTCP::ReadData(){
 //    qDebug()<<socket->bytesAvailable();
     QByteArray buf = socket->readAll();//readAll最多接收65532的数据
@@ -31,4 +32,10 @@ void serverTCP::ReadData(){
     qDebug()<<buf;
 //    ui.textEdit_server->append(str +QString(buf));
     socket->write("ok");//服务器接收到信息后返回一个ok
+}
+
+void serverTCP::sendJsonData(QByteArray _send_json){
+    if(socket->isValid()){
+        socket->write(_send_json);
+    }
 }
